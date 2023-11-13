@@ -1,0 +1,7 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+.idea/
+k8s_sample_app.iml
+misc.xml
+modules.xml
