@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: k8s-sample-app
-          image: aputra/nginx:v0.1.0
+          image: docker.io/pavelzagalsky/k8s-sample-app:latest
           ports:
             - containerPort: 80
           resources:
