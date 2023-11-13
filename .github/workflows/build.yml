@@ -19,6 +19,7 @@ jobs:
       - name: Echo the values
         run: |
           echo "github repository is: ${{env.GITHUB_REPOSITORY}}"
+          printenv
         
       - name: Checkout code
         uses: actions/checkout@v2
