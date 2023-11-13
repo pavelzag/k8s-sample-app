@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import logging
 import os
 import sys
@@ -25,9 +25,9 @@ except Exception as e:
 
 @app.route('/')
 def hello_world():
-    # Log "Hello, World!" to the log file and stdout
-    logging.info("Hello, World!")
-    return "Hello, World!"
+    name = request.args.get('name', 'Guest')  # 'Guest' is the default value if 'name' is not provided
+    logging.info(f"Hello, {name}!")
+    return f"Hello, {name}!"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
