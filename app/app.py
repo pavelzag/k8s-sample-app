@@ -5,6 +5,8 @@ import sys
 
 app = Flask(__name__)
 
+# Define the log file path
+log_file = '/var/log/sample_app.log'
 
 # Configure the logger to write to the log file and stdout
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
@@ -12,8 +14,7 @@ stdout_handler = logging.StreamHandler(sys.stdout)
 stdout_handler.setFormatter(logging.Formatter('%(asctime)s [%(levelname)s] %(message)s'))
 logging.getLogger().addHandler(stdout_handler)
 
-# Define the log file path
-log_file = '/var/log/sample_app.log'
+
 
 # Check if the log file exists, and create it if it doesn't
 try:
