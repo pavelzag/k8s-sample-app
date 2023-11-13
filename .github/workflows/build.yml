@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Echo the values
         run: |
-          echo "cluster_name is: ${{ vars.GITHUB_REPOSITORY }}"
+          echo "github repository is: ${{env.GITHUB_REPOSITORY}}"
         
       - name: Checkout code
         uses: actions/checkout@v2
@@ -43,4 +43,4 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
           tags: |
-            ${{ vars.GITHUB_REPOSITORY }}:${{ github.event.inputs.tag }}
+            ${{ env.GITHUB_REPOSITORY }}:${{ github.event.inputs.tag }}
