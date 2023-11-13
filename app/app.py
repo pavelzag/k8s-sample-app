@@ -22,7 +22,7 @@ try:
         open(log_file, 'w').close()
 except Exception as e:
     logging.error(f"There was a problem creating a file {e}")
-    
+
 @app.route('/')
 def hello_world():
     # Log "Hello, World!" to the log file and stdout
@@ -31,4 +31,3 @@ def hello_world():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
-
