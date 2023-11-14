@@ -6,7 +6,7 @@ metadata:
   labels:
     app: k8s-sample-app
 spec:
-  replicas: 10
+  replicas: 4
   selector:
     matchLabels:
       app: k8s-sample-app
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: k8s-sample-app
-          image: docker.io/pavelzagalsky/k8s-sample-app:v1.6
+          image: docker.io/pavelzagalsky/k8s-sample-app:v1.7
           ports:
             - containerPort: 80
           resources:
