@@ -18,9 +18,12 @@ jobs:
     steps:
       - name: Echo the values
         run: |
-          echo "github repository is: ${{env.GITHUB_REPOSITORY}}"
+          echo "github repository is: ${{ env.GITHUB_REPOSITORY }}"
           printenv
-        
+      - name: Print GITHUB_REPOSITORY
+        run: |
+          echo "Repository: ${{ env.GITHUB_REPOSITORY }}"
+
       - name: Checkout code
         uses: actions/checkout@v2
 
