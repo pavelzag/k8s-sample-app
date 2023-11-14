@@ -20,7 +20,7 @@ jobs:
         run: |
           echo "github repository is: " $GITHUB_REPOSITORY
           printenv
-          export DATABASE_URL: $GITHUB_REPOSITORY:${{ inputs.tag}}
+          export DATABASE_URL=$GITHUB_REPOSITORY:${{ inputs.tag}}
           echo $DATABASE_URL
 
       - name: Checkout code
