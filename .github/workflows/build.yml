@@ -18,11 +18,11 @@ jobs:
     steps:
       - name: Echo the values
         run: |
-          echo "github repository is: " ${GITHUB_REPOSITORY}
+          echo "github repository is: " $GITHUB_REPOSITORY
           printenv
       - name: Print GITHUB_REPOSITORY
         run: |
-          echo "Repository: " ${{ env.GITHUB_REPOSITORY }}
+          echo "Repository: " $GITHUB_REPOSITORY
           echo "Repository: " ${{ env.RUNNER_WORKSPACE }}
           echo "Repository: " ${{ env.GITHUB_WORKFLOW_REF }}
           echo "Repository: " ${{ env.GITHUB_WORKSPACE }}
