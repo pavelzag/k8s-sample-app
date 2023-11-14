@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Echo the values
         run: |
-          echo "github repository is: ${{ env.GITHUB_REPOSITORY }}"
+          echo "github repository is: " ${GITHUB_REPOSITORY}
           printenv
       - name: Print GITHUB_REPOSITORY
         run: |
