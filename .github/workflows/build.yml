@@ -20,12 +20,6 @@ jobs:
         run: |
           echo "github repository is: " $GITHUB_REPOSITORY
           printenv
-      - name: Print GITHUB_REPOSITORY
-        run: |
-          echo "Repository: " $GITHUB_REPOSITORY
-          echo "Repository: " ${{ env.RUNNER_WORKSPACE }}
-          echo "Repository: " ${{ env.GITHUB_WORKFLOW_REF }}
-          echo "Repository: " ${{ env.GITHUB_WORKSPACE }}
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -50,4 +44,4 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
           tags: |
-            ${{ env.GITHUB_REPOSITORY }}:${{ github.event.inputs.tag }}
+          $GITHUB_REPOSITORY:${{ github.event.inputs.tag }}
