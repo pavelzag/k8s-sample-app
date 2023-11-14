@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Echo the values
+      - name: Extract the image name and tag
         run: |
           echo "REPO_TAG=pavelzag/k8s-sample-app:${{ inputs.tag}}" >> $GITHUB_ENV
 
