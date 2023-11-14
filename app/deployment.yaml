@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: k8s-sample-app
-          image: docker.io/pavelzagalsky/k8s-sample-app:v1.5
+          image: docker.io/pavelzagalsky/k8s-sample-app:v1.6
           ports:
             - containerPort: 80
           resources:
