@@ -20,8 +20,8 @@ jobs:
         run: |
           echo "github repository is: " $GITHUB_REPOSITORY
           printenv
-          export DATABASE_URL=$GITHUB_REPOSITORY:${{ inputs.tag}}
-          echo $DATABASE_URL
+          export REPO_TAG=$GITHUB_REPOSITORY:${{ inputs.tag}}
+          echo $REPO_TAG
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -46,4 +46,4 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
           tags: |
-            ${{vars.GITHUB_REPOSITORY}}:${{ github.event.inputs.tag }}
+            $REPO_TAG
