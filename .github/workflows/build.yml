@@ -1,8 +1,7 @@
 name: Build Multi-Arch Docker Image
-
 on:
     repository_dispatch:
-      types: build
+      types: build-and-push-docker-image
     
     workflow_dispatch:
         inputs:
