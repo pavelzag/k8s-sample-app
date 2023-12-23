@@ -13,8 +13,8 @@ RUN apt-get update
 RUN apt-get install python3-pip -y
 RUN pip3 install -r requirements.txt
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
+# Make port 8080 available to the world outside this container
+EXPOSE 8080
 
 # Define environment variable
 ENV NAME World
