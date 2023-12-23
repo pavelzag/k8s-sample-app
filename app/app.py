@@ -23,7 +23,7 @@ except Exception as e:
     logging.error(f"There was a problem creating a file {e}")
 
 
-@app.route('/')
+@app.route('/hello')
 def hello_world():
     logging.info(f"Hello from {POD_NAME}!")
     return f"Hello from {POD_NAME}!"
