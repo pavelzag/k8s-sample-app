@@ -19,7 +19,7 @@ spec:
         - name: k8s-sample-app
           image: docker.io/pavelzagalsky/k8s-sample-app:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           resources:
             requests:
               memory: "16Mi"
