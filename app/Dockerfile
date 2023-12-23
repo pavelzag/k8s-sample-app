@@ -9,6 +9,7 @@ COPY . /app
 COPY sample_app.log /var/log/sample_app.log
 
 # Install any needed packages specified in requirements.txt
+RUN apt-get update
 RUN apt-get install python3-pip
 RUN pip3 install -r requirements.txt
 
