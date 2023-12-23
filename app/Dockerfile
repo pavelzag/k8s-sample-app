@@ -6,10 +6,10 @@ WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 COPY . /app
-COPY app/sample_app.log /var/log/sample_app.log
+COPY sample_app.log /var/log/sample_app.log
 
 # Install any needed packages specified in requirements.txt
-RUN pip3 install -r app/requirements.txt
+RUN pip3 install -r requirements.txt
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
@@ -18,6 +18,6 @@ EXPOSE 80
 ENV NAME World
 
 # Run app.py when the container launches
-CMD ["python", "app/app.py"]
+CMD ["python", "app.py"]
 # ENTRYPOINT ["tail", "-f", "/dev/null"]
 
