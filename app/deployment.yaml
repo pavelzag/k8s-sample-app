@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: k8s-sample-app-deployment
-  namespace: prod
+  namespace: cloud-testing-env
   labels:
     app: k8s-sample-app
 spec:
