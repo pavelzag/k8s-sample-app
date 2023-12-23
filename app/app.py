@@ -4,7 +4,6 @@ import os
 import sys
 
 app = Flask(__name__)
-
 # Define the log file path
 log_file = '/var/log/sample_app.log'
 
@@ -14,9 +13,8 @@ stdout_handler = logging.StreamHandler(sys.stdout)
 stdout_handler.setFormatter(logging.Formatter('%(asctime)s [%(levelname)s] %(message)s'))
 logging.getLogger().addHandler(stdout_handler)
 
+POD_NAME = os.getenv('HOSTNAME', 'default')
 
-
-# Check if the log file exists, and create it if it doesn't
 try:
     if not os.path.exists(log_file):
         logging.info(f"{log_file} does not exist")
@@ -24,11 +22,12 @@ try:
 except Exception as e:
     logging.error(f"There was a problem creating a file {e}")
 
+
 @app.route('/')
 def hello_world():
-    name = request.args.get('name', 'Guest')  # 'Guest' is the default value if 'name' is not provided
-    logging.info(f"Hello, {name}!")
-    return f"Hello, {name}!"
+    logging.info(f"Hello from {POD_NAME}!")
+    return f"Hello from {POD_NAME}!"
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
