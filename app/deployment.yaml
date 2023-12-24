@@ -6,7 +6,7 @@ metadata:
   labels:
     app: k8s-sample-app
 spec:
-  replicas: 18
+  replicas: 72
   selector:
     matchLabels:
       app: k8s-sample-app
