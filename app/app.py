@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask
 import logging
 import os
 import sys
@@ -13,7 +13,7 @@ config = Config(
              'param': 1},
         'logging': True,
         'reporter_batch_size': 1, },
-    service_name="service")
+    service_name="k8s-sample-app")
 jaeger_tracer = config.initialize_tracer()
 tracing = FlaskTracing(jaeger_tracer, True, app)
 # Define the log file path
