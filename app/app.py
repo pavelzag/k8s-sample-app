@@ -2,8 +2,20 @@ from flask import Flask, request
 import logging
 import os
 import sys
+from jaeger_client import Config
+from flask_opentracing import FlaskTracing
 
 app = Flask(__name__)
+config = Config(
+    config={
+        'sampler':
+            {'type': 'const',
+             'param': 1},
+        'logging': True,
+        'reporter_batch_size': 1, },
+    service_name="service")
+jaeger_tracer = config.initialize_tracer()
+tracing = FlaskTracing(jaeger_tracer, True, app)
 # Define the log file path
 log_file = '/var/log/sample_app.log'
 
