@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, abort
 import logging
 import os
 import sys
@@ -16,7 +16,7 @@ config = Config(
     service_name="k8s-sample-app")
 jaeger_tracer = config.initialize_tracer()
 tracing = FlaskTracing(jaeger_tracer, True, app)
-# Define the log file path
+
 log_file = '/var/log/sample_app.log'
 
 # Configure the logger to write to the log file and stdout
@@ -63,6 +63,16 @@ def call_square(num):
 def generate_fibonacci(n):
     result = calculate_fibonacci(n)
     return jsonify({"fibonacci_sequence": result})
+
+
+@app.route('/not_found')
+def not_found():
+    abort(404)
+
+
+@app.route('/internal_server_error')
+def internal_server_error():
+    abort(500)
 
 
 if __name__ == '__main__':

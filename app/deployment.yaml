@@ -20,6 +20,7 @@ spec:
       containers:
         - name: k8s-sample-app
           image: docker.io/pavelzagalsky/k8s-sample-app:1.7
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           resources:
