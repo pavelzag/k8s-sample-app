@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 import logging
 import os
 import sys
@@ -26,6 +26,7 @@ stdout_handler.setFormatter(logging.Formatter('%(asctime)s [%(levelname)s] %(mes
 logging.getLogger().addHandler(stdout_handler)
 
 POD_NAME = os.getenv('HOSTNAME', 'default')
+K8S_SAMPLE_APP_SERVICE_SERVICE_HOST = os.getenv('K8S_SAMPLE_APP_SERVICE_SERVICE_HOST', 'default')
 
 try:
     if not os.path.exists(log_file):
@@ -35,10 +36,33 @@ except Exception as e:
     logging.error(f"There was a problem creating a file {e}")
 
 
+def square(x):
+    return f"The square of {x} is {x ** 2}"
+
+
+def calculate_fibonacci(n):
+    fib_sequence = [0, 1]
+    while len(fib_sequence) < n:
+        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+    return fib_sequence
+
+
 @app.route('/hello')
 def hello_world():
     logging.info(f"Hello from {POD_NAME}!")
-    return f"Hello from {POD_NAME}!"
+    return f"Hello from {POD_NAME} and {K8S_SAMPLE_APP_SERVICE_SERVICE_HOST}!"
+
+
+@app.route('/square/<int:num>')
+def call_square(num):
+    result = square(num)
+    return f"Calling square function: {result}"
+
+
+@app.route('/fibonacci/<int:n>')
+def generate_fibonacci(n):
+    result = calculate_fibonacci(n)
+    return jsonify({"fibonacci_sequence": result})
 
 
 if __name__ == '__main__':
