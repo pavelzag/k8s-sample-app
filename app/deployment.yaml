@@ -8,7 +8,7 @@ metadata:
   annotations:
     "sidecar.jaegertracing.io/inject": "true"
 spec:
-  replicas: 16
+  replicas: 32
   selector:
     matchLabels:
       app: k8s-sample-app
