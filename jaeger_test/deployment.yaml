@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: k8s-sample-app
-          image: docker.io/pavelzagalsky/jaeger-test-app:1.0
+          image: docker.io/pavelzagalsky/jaeger-test-app:1.1
           imagePullPolicy: Always
           ports:
             - containerPort: 81
