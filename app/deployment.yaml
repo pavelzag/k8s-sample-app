@@ -8,7 +8,7 @@ metadata:
   annotations:
     "sidecar.jaegertracing.io/inject": "true"
 spec:
-  replicas: 15
+  replicas: 8
   selector:
     matchLabels:
       app: k8s-sample-app
@@ -19,14 +19,14 @@ spec:
     spec:
       containers:
         - name: k8s-sample-app
-          image: docker.io/pavelzagalsky/k8s-sample-app:1.8
+          image: docker.io/pavelzagalsky/k8s-sample-app:1.10
           imagePullPolicy: Always
           ports:
             - containerPort: 80
           resources:
             requests:
-              memory: "16Mi"
-              cpu: "250m"
-            limits:
               memory: "128Mi"
-              cpu: "500m"
+              cpu: "64m"
+            limits:
+              memory: "256Mi"
+              cpu: "128m"
