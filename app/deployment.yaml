@@ -5,6 +5,7 @@ metadata:
   namespace: cloud-testing-env
   labels:
     app: k8s-sample-app
+    istio-injection: enabled
   annotations:
     "sidecar.jaegertracing.io/inject": "true"
 spec:
