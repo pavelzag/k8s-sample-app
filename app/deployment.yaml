@@ -1,3 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cloud-testing-env
+  labels:
+    istio-injection: enabled
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,6 +13,7 @@ metadata:
   labels:
     app: k8s-sample-app
     istio-injection: enabled
+    version: "1.0.0"
   annotations:
     "sidecar.jaegertracing.io/inject": "true"
 spec:
@@ -17,6 +25,8 @@ spec:
     metadata:
       labels:
         app: k8s-sample-app
+        istio-injection: enabled
+        version: "1.0.0"
     spec:
       containers:
         - name: k8s-sample-app
