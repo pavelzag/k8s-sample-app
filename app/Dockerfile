@@ -19,6 +19,6 @@ EXPOSE 80
 ENV NAME World
 
 # Run app.py when the container launches
-CMD ["python", "app.py"]
-# ENTRYPOINT ["tail", "-f", "/dev/null"]
+#CMD ["python", "app.py"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]
 
