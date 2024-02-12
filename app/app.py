@@ -54,14 +54,19 @@ def calculate_fibonacci(n):
 
 @app.route('/hello')
 def hello_world():
-    logging.info(f"Hello from {POD_NAME}!")
-    return f"Hello from {POD_NAME} and {K8S_SAMPLE_APP_SERVICE_SERVICE_HOST}!"
+    with tracing.start_span('hello_world') as span:
+        span.set_tag('pod_name', POD_NAME)
+        logging.info(f"Hello from {POD_NAME}!")
+        return f"Hello from {POD_NAME} and {K8S_SAMPLE_APP_SERVICE_SERVICE_HOST}!"
 
 
 @app.route('/square/<int:num>')
 def call_square(num):
-    result = square(num)
-    return f"Calling square function: {result}"
+    with tracing.start_span('square', child_of=tracing.active_span) as span:
+        span.set_tag('number', num)
+        result = square(num)
+        span.log_kv({'result': result})
+        return f"Calling square function: {result}"
 
 
 @app.route('/cube/<int:num>')
