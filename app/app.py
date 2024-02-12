@@ -38,14 +38,18 @@ def hello_world():
 
 @app.route('/square/<int:num>')
 def call_square(num):
-    result = square(num)
-    return jsonify({"result": result})
+    with tracing.start_span('square') as span:
+        span.log_kv({'message': 'Hello from square endpoint'})
+        result = square(num)
+        return jsonify({"result": result})
 
 
 @app.route('/cube/<int:num>')
 def call_cube(num):
-    result = cube(num)
-    return jsonify({"result": result})
+    with tracing.start_span('cube') as span:
+        span.log_kv({'message': 'Hello from cube app!'})
+        result = cube(num)
+        return jsonify({"result": result})
 
 
 if __name__ == '__main__':
