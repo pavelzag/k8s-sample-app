@@ -1,0 +1,133 @@
+2024-02-08 22:03:33,618 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.1.119:80
+2024-02-08 22:03:33,618 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-08 22:04:11,875 [INFO] Reporting span ac9012c68772dae0:45b01475572f6b00:0:1 k8s-sample-app.generate_fibonacci
+2024-02-08 22:04:11,877 [INFO] 127.0.0.1 - - [08/Feb/2024 22:04:11] "GET /fibonacci/5 HTTP/1.1" 200 -
+2024-02-08 22:04:12,241 [INFO] Reporting span 9063dfc557156448:316fa5fbc2af208d:0:1 k8s-sample-app.
+2024-02-08 22:04:12,241 [INFO] 127.0.0.1 - - [08/Feb/2024 22:04:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-02-08 22:04:23,229 [INFO] Reporting span fe1a8c50976dcb72:468b4bc2300f3d4f:0:1 k8s-sample-app.call_square
+2024-02-08 22:04:23,230 [INFO] 127.0.0.1 - - [08/Feb/2024 22:04:23] "GET /square/8 HTTP/1.1" 200 -
+2024-02-08 22:04:58,849 [INFO] Reporting span 1c172a6f513f955e:963536e4115b4ec6:0:1 k8s-sample-app.call_square
+2024-02-08 22:04:58,852 [INFO] 127.0.0.1 - - [08/Feb/2024 22:04:58] "GET /square/8 HTTP/1.1" 200 -
+2024-02-08 22:05:06,827 [INFO] Reporting span 6d395e642e6bae5c:29a7494207bcfd94:0:1 k8s-sample-app.call_square
+2024-02-08 22:05:06,828 [INFO] 127.0.0.1 - - [08/Feb/2024 22:05:06] "GET /square/8 HTTP/1.1" 200 -
+2024-02-08 22:05:12,169 [INFO] Reporting span 2d323f7716707b5a:fb9cc8733404b981:0:1 k8s-sample-app.call_square
+2024-02-08 22:05:12,171 [INFO] 127.0.0.1 - - [08/Feb/2024 22:05:12] "GET /square/8 HTTP/1.1" 200 -
+2024-02-08 22:05:30,188 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.1.119:80
+2024-02-08 22:05:30,188 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-08 22:11:32,396 [INFO] Reporting span a357b15ccd759f18:a4b6fde1503f7ac0:0:1 k8s-sample-app.call_square
+2024-02-08 22:11:32,399 [INFO] 127.0.0.1 - - [08/Feb/2024 22:11:32] "GET /square/8 HTTP/1.1" 200 -
+2024-02-08 22:11:37,640 [INFO] Reporting span 5c64943c77a8b7ff:e9dbdd631010ec3:0:1 k8s-sample-app.
+2024-02-08 22:11:37,640 [INFO] 127.0.0.1 - - [08/Feb/2024 22:11:37] "[33mGET /cube/8 HTTP/1.1[0m" 404 -
+2024-02-08 22:11:45,498 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.1.119:80
+2024-02-08 22:11:45,498 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-08 22:11:48,557 [INFO] Reporting span fdd8bb6d9c4a906e:5beefd54cdf72e5a:0:1 k8s-sample-app.call_cube
+2024-02-08 22:11:48,558 [INFO] 127.0.0.1 - - [08/Feb/2024 22:11:48] "GET /cube/8 HTTP/1.1" 200 -
+2024-02-08 22:13:22,482 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.1.119:80
+2024-02-08 22:13:22,483 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-08 22:13:40,195 [INFO] Reporting span 274533b4715afb95:304fafd9ae43cc2e:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:13:40,196 [INFO] 127.0.0.1 - - [08/Feb/2024 22:13:40] "GET /my_name_is/slim_shady HTTP/1.1" 200 -
+2024-02-08 22:14:25,706 [INFO] Reporting span b162905fc59dc841:d72043802884466d:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:14:25,707 [INFO] 127.0.0.1 - - [08/Feb/2024 22:14:25] "GET /my_name_is/poopy_farts HTTP/1.1" 200 -
+2024-02-08 22:14:55,922 [INFO] Reporting span b575a4323c8b3210:40ee907917baed0a:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:14:55,923 [INFO] 127.0.0.1 - - [08/Feb/2024 22:14:55] "GET /my_name_is/william_shartner HTTP/1.1" 200 -
+2024-02-08 22:17:27,707 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.1.119:80
+2024-02-08 22:17:27,707 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-08 22:18:47,892 [INFO] Reporting span 9de228717468a534:38edc3f102f3849a:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:18:47,894 [INFO] 127.0.0.1 - - [08/Feb/2024 22:18:47] "GET /my_name_is/william_shartner HTTP/1.1" 200 -
+2024-02-08 22:18:57,353 [INFO] Reporting span e95bc85300c6e691:f541f2e421aba151:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:18:57,353 [INFO] 127.0.0.1 - - [08/Feb/2024 22:18:57] "GET /my_name_is/william_shartner HTTP/1.1" 200 -
+2024-02-08 22:19:56,321 [INFO] Reporting span 3905adc124778ce3:4dc4be4701f241d0:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:19:56,323 [INFO] 127.0.0.1 - - [08/Feb/2024 22:19:56] "GET /my_name_is/william_shartner HTTP/1.1" 200 -
+2024-02-08 22:20:04,498 [INFO] Reporting span 57e7769dfb749347:98c0c2a84cdfee29:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:20:04,498 [INFO] 127.0.0.1 - - [08/Feb/2024 22:20:04] "GET /my_name_is/william_shartner HTTP/1.1" 200 -
+2024-02-08 22:20:09,971 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.1.119:80
+2024-02-08 22:20:09,971 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-08 22:20:15,025 [ERROR] Exception on /my_name_is/william_shartner [GET]
+Traceback (most recent call last):
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/pavelza/Work/k8s_sample_app/app/app.py", line 82, in my_name_is
+    return f"My name is: {names_list[0].capitalized} {names_list[1].capitalized}"
+AttributeError: 'str' object has no attribute 'capitalized'
+2024-02-08 22:20:15,030 [INFO] Reporting span 54898ef94b359b3b:b50d2b3c4bf791d9:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:20:15,030 [INFO] 127.0.0.1 - - [08/Feb/2024 22:20:15] "[35m[1mGET /my_name_is/william_shartner HTTP/1.1[0m" 500 -
+2024-02-08 22:21:14,346 [ERROR] Exception on /my_name_is/william_shartner [GET]
+Traceback (most recent call last):
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/pavelza/Work/k8s_sample_app/app/app.py", line 82, in my_name_is
+    return f"My name is: {names_list[0].capitalize()} {names_list[1].capitalize()}"
+AttributeError: 'str' object has no attribute 'capitalized'
+2024-02-08 22:21:14,349 [INFO] Reporting span d630bab70ac35ebc:9e263e461d16f894:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:21:14,350 [INFO] 127.0.0.1 - - [08/Feb/2024 22:21:14] "[35m[1mGET /my_name_is/william_shartner HTTP/1.1[0m" 500 -
+2024-02-08 22:21:18,886 [ERROR] Exception on /my_name_is/william_shartner [GET]
+Traceback (most recent call last):
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/pavelza/Work/k8s_sample_app/app/app.py", line 82, in my_name_is
+    return f"My name is: {names_list[0].capitalize()} {names_list[1].capitalize()}"
+AttributeError: 'str' object has no attribute 'capitalized'
+2024-02-08 22:21:18,887 [INFO] Reporting span e71caf6e1579c140:3580becaeae4e6c8:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:21:18,887 [INFO] 127.0.0.1 - - [08/Feb/2024 22:21:18] "[35m[1mGET /my_name_is/william_shartner HTTP/1.1[0m" 500 -
+2024-02-08 22:21:36,065 [ERROR] Exception on /my_name_is/william_shartner [GET]
+Traceback (most recent call last):
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/pavelza/Work/k8s_sample_app/app/app.py", line 82, in my_name_is
+    return f"My name is: {names_list[0].capitalize()} {names_list[1].capitalize()}"
+AttributeError: 'str' object has no attribute 'capitalized'
+2024-02-08 22:21:36,066 [INFO] Reporting span 5065283367b52fde:b6fa9877d2569871:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:21:36,066 [INFO] 127.0.0.1 - - [08/Feb/2024 22:21:36] "[35m[1mGET /my_name_is/william_shartner HTTP/1.1[0m" 500 -
+2024-02-08 22:21:42,145 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.1.119:80
+2024-02-08 22:21:42,145 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-08 22:21:45,949 [INFO] Reporting span e4382f17abe0726b:286bd918260d4a81:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:21:45,950 [INFO] 127.0.0.1 - - [08/Feb/2024 22:21:45] "GET /my_name_is/william_shartner HTTP/1.1" 200 -
+2024-02-08 22:21:57,937 [INFO] Reporting span 94abde6466a56d33:f48aabb5105607db:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:21:57,938 [INFO] 127.0.0.1 - - [08/Feb/2024 22:21:57] "GET /my_name_is/poopy_farts HTTP/1.1" 200 -
+2024-02-08 22:22:07,623 [INFO] Reporting span f5589b22b2a66670:3f7868a6050e7e81:0:1 k8s-sample-app.my_name_is
+2024-02-08 22:22:07,624 [INFO] 127.0.0.1 - - [08/Feb/2024 22:22:07] "GET /my_name_is/bag_of_dicks HTTP/1.1" 200 -
