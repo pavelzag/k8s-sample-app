@@ -73,28 +73,24 @@ def hello_world():
 
 
 @app.route('/square/<int:num>')
-@tracing.trace()
 def call_square(num):
     result = square(num)
     return f"Calling square function: {result}"
 
 
 @app.route('/cube/<int:num>')
-@tracing.trace()
 def call_cube(num):
     result = cube(num)
     return f"Calling cube function: {result}"
 
 
 @app.route('/fibonacci/<int:n>')
-@tracing.trace()
 def generate_fibonacci(n):
     result = calculate_fibonacci(n)
     return jsonify({"fibonacci_sequence": result})
 
 
 @app.route('/my_name_is/<string:name>')
-@tracing.trace()
 def my_name_is(name):
     if "_" in name:
         names_list = name.split("_")
@@ -102,13 +98,11 @@ def my_name_is(name):
 
 
 @app.route('/not_found')
-@tracing.trace()
 def not_found():
     abort(404)
 
 
 @app.route('/internal_server_error')
-@tracing.trace()
 def internal_server_error():
     abort(500)
 
