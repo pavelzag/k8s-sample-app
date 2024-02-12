@@ -146,3 +146,106 @@ AttributeError: 'str' object has no attribute 'capitalized'
 2024-02-12 17:55:57,692 [INFO] 127.0.0.1 - - [12/Feb/2024 17:55:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
 2024-02-12 17:56:07,423 [INFO] Reporting span 3776ba53203e7fe2:dbb6b14107809166:0:1 k8s-sample-app.generate_fibonacci
 2024-02-12 17:56:07,423 [INFO] 127.0.0.1 - - [12/Feb/2024 17:56:07] "GET /fibonacci/10 HTTP/1.1" 200 -
+2024-02-12 20:54:27,520 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.16.154:80
+2024-02-12 20:54:27,520 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-12 20:54:35,846 [ERROR] Exception on /square/40 [GET]
+Traceback (most recent call last):
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/pavelza/Work/k8s_sample_app/app/app.py", line 65, in call_square
+    with tracing.start_span('square', child_of=tracing.active_span) as span:
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/opentracing/tracer.py", line 59, in active_span
+    scope = self._scope_manager.active
+AttributeError: 'FlaskTracing' object has no attribute '_scope_manager'
+2024-02-12 20:54:35,850 [INFO] Reporting span f9f1b12076ce4f89:f600d3c1c4b50d93:0:1 k8s-sample-app-service.call_square
+2024-02-12 20:54:35,850 [INFO] 127.0.0.1 - - [12/Feb/2024 20:54:35] "[35m[1mGET /square/40 HTTP/1.1[0m" 500 -
+2024-02-12 20:54:36,197 [INFO] Reporting span 84b0b4101c00ed24:1cab6f2500215e49:0:1 k8s-sample-app-service.
+2024-02-12 20:54:36,197 [INFO] 127.0.0.1 - - [12/Feb/2024 20:54:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-02-12 21:01:03,510 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.16.154:80
+2024-02-12 21:01:03,511 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-12 21:01:09,620 [ERROR] Exception on /square/40 [GET]
+Traceback (most recent call last):
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask_opentracing/tracing.py", line 78, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/pavelza/Work/k8s_sample_app/app/app.py", line 67, in call_square
+    with tracing.start_span('square') as span:
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/opentracing/tracer.py", line 188, in start_span
+    return self._noop_span
+AttributeError: 'FlaskTracing' object has no attribute '_noop_span'
+2024-02-12 21:01:09,627 [INFO] Reporting span 150fe0bdcb671ba3:976dd026fb0f5332:0:1 k8s-sample-app-service.call_square
+2024-02-12 21:01:09,629 [INFO] 127.0.0.1 - - [12/Feb/2024 21:01:09] "[35m[1mGET /square/40 HTTP/1.1[0m" 500 -
+2024-02-12 21:01:34,507 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.16.154:80
+2024-02-12 21:01:34,507 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-12 21:01:39,856 [ERROR] Exception on /square/40 [GET]
+Traceback (most recent call last):
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask_opentracing/tracing.py", line 78, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/pavelza/Work/k8s_sample_app/app/app.py", line 67, in call_square
+    with tracing.start_span('square') as span:
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/opentracing/tracer.py", line 188, in start_span
+    return self._noop_span
+AttributeError: 'FlaskTracing' object has no attribute '_noop_span'
+2024-02-12 21:01:39,862 [INFO] Reporting span c0c12eb64426d09c:ca3264576996030e:0:1 k8s-sample-app-service.call_square
+2024-02-12 21:01:39,863 [INFO] 127.0.0.1 - - [12/Feb/2024 21:01:39] "[35m[1mGET /square/40 HTTP/1.1[0m" 500 -
+2024-02-12 21:01:49,306 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.16.154:80
+2024-02-12 21:01:49,306 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-12 21:01:53,347 [ERROR] Exception on /square/40 [GET]
+Traceback (most recent call last):
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/pavelza/Work/k8s_sample_app/app/app.py", line 66, in call_square
+    with tracing.start_span('square') as span:
+  File "/Users/pavelza/Work/k8s_sample_app/config_map_venv/lib/python3.9/site-packages/opentracing/tracer.py", line 188, in start_span
+    return self._noop_span
+AttributeError: 'FlaskTracing' object has no attribute '_noop_span'
+2024-02-12 21:01:53,352 [INFO] Reporting span d7e2db49c5a75d9c:f0f6595f0fda21:0:1 k8s-sample-app-service.call_square
+2024-02-12 21:01:53,352 [INFO] 127.0.0.1 - - [12/Feb/2024 21:01:53] "[35m[1mGET /square/40 HTTP/1.1[0m" 500 -
+2024-02-12 21:02:27,238 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.16.154:80
+2024-02-12 21:02:27,239 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-12 21:02:29,786 [INFO] Reporting span cbb5c230d6cfb7d1:49449f0d25b2770b:0:1 k8s-sample-app-service.call_square
+2024-02-12 21:02:29,786 [INFO] 127.0.0.1 - - [12/Feb/2024 21:02:29] "GET /square/40 HTTP/1.1" 200 -
+2024-02-12 21:02:30,944 [INFO] Reporting span 4caecbb60abe5050:12195e61d7941fa6:0:1 k8s-sample-app-service.call_square
+2024-02-12 21:02:30,946 [INFO] 127.0.0.1 - - [12/Feb/2024 21:02:30] "GET /square/40 HTTP/1.1" 200 -
