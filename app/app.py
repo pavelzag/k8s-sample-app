@@ -75,11 +75,13 @@ def generate_fibonacci(n):
     result = calculate_fibonacci(n)
     return jsonify({"fibonacci_sequence": result})
 
+
 @app.route('/my_name_is/<string:name>')
 def my_name_is(name):
     if "_" in name:
         names_list = name.split("_")
     return f"My name is: {names_list[0].capitalize()} {names_list[1].capitalize()}"
+
 
 @app.route('/not_found')
 def not_found():
