@@ -13,7 +13,7 @@ config = Config(
              'param': 1},
         'logging': True,
         'reporter_batch_size': 1, },
-    service_name="k8s-sample-app")
+    service_name="k8s-sample-app-service")
 jaeger_tracer = config.initialize_tracer()
 tracing = FlaskTracing(jaeger_tracer, True, app)
 
