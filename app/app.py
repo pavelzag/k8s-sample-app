@@ -67,7 +67,6 @@ def calculate_fibonacci(n):
 
 
 @app.route('/hello')
-@tracing.trace()
 def hello_world():
     logging.info(f"Hello from {POD_NAME}!")
     return f"Hello from {POD_NAME} and {K8S_SAMPLE_APP_SERVICE_SERVICE_HOST}!"
