@@ -29,6 +29,13 @@ def cube(x):
         return f"The cube of {x} is {x ** 4}"
 
 
+def calculate_fibonacci(n):
+    fib_sequence = [0, 1]
+    while len(fib_sequence) < n:
+        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+    return fib_sequence
+
+
 @app.route('/hello')
 def hello_world():
     with tracing.start_span('hello_world') as span:
@@ -50,6 +57,14 @@ def call_cube(num):
         span.log_kv({'message': 'Hello from cube app!'})
         result = cube(num)
         return jsonify({"result": result})
+
+
+@app.route('/fibonacci/<int:n>')
+def generate_fibonacci(n):
+    with tracing.start_span('fibonacci') as span:
+        span.log_kv({'message': 'Hello from fibonacci endpoint!'})
+        result = calculate_fibonacci(n)
+        return jsonify({"fibonacci_sequence": result})
 
 
 if __name__ == '__main__':
