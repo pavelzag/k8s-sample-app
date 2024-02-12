@@ -1,75 +1,129 @@
-from flask import Flask, jsonify, abort
-import logging
-import os
-import sys
-from opentelemetry import trace
-from opentelemetry.exporter.jaeger.thrift import JaegerExporter
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from flask import Flask, jsonify
+from jaeger_client import Config
+from flask_opentracing import FlaskTracing
 
-trace.set_tracer_provider(TracerProvider())
-
-jaeger_exporter = JaegerExporter(
-    agent_host_name='localhost',
-    agent_port=6831,
-    # optional: configure also collector
-    # collector_endpoint='http://localhost:14268/api/traces?format=jaeger.thrift',
-    # username=xxxx, # optional
-    # password=xxxx, # optional
-    # max_tag_value_length=None # optional
-)
-
-span_processor = BatchSpanProcessor(jaeger_exporter)
-
-trace.get_tracer_provider().add_span_processor(span_processor)
-
-tracer = trace.get_tracer(__name__)
-
-with tracer.start_as_current_span("foo"):
-    with tracer.start_as_current_span("bar"):
-        with tracer.start_as_current_span("baz"):
-            print("Hello world from OpenTelemetry Python!")
-
-stdout_handler = logging.StreamHandler(sys.stdout)
-stdout_handler.setFormatter(logging.Formatter('%(asctime)s [%(levelname)s] %(message)s'))
-logging.getLogger().addHandler(stdout_handler)
-
-POD_NAME = os.getenv('HOSTNAME', 'default')
-K8S_SAMPLE_APP_SERVICE_SERVICE_HOST = os.getenv('K8S_SAMPLE_APP_SERVICE_SERVICE_HOST', 'default')
 app = Flask(__name__)
+
+# Jaeger configuration
+config = Config(
+    config={
+        'sampler': {'type': 'const', 'param': 1},
+        'logging': True,
+        'reporter_batch_size': 1,
+    },
+    service_name="k8s-sample-app-service"
+)
+jaeger_tracer = config.initialize_tracer()
+tracing = FlaskTracing(jaeger_tracer, True, app)
 
 
 def square(x):
-    return f"The square of {x} is {x ** 2}"
+    with tracing.start_span('square') as span:
+        span.set_tag('number', x)
+        return f"The square of {x} is {x ** 2}"
 
 
 def cube(x):
-    return f"The cube of {x} is {x ** 4}"
-
-
-def calculate_fibonacci(n):
-    fib_sequence = [0, 1]
-    while len(fib_sequence) < n:
-        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
-    return fib_sequence
+    with tracing.start_span('cube') as span:
+        span.set_tag('number', x)
+        return f"The cube of {x} is {x ** 4}"
 
 
 @app.route('/hello')
 def hello_world():
-    with tracer.start_as_current_span("hello"):
-        logging.info(f"Hello from {POD_NAME}!")
-        return f"Hello from {POD_NAME} and {K8S_SAMPLE_APP_SERVICE_SERVICE_HOST}!"
+    with tracing.start_span('hello_world') as span:
+        span.log_kv({'message': 'Hello from Flask app!'})
+        return 'Hello from Flask!'
 
 
-@app.route('/fibonacci/<int:n>')
-def generate_fibonacci(n):
-    with tracer.start_as_current_span("fibonacci"):
-        result = calculate_fibonacci(n)
-        return jsonify({"fibonacci_sequence": result})
+@app.route('/square/<int:num>')
+def call_square(num):
+    result = square(num)
+    return jsonify({"result": result})
+
+
+@app.route('/cube/<int:num>')
+def call_cube(num):
+    result = cube(num)
+    return jsonify({"result": result})
 
 
 if __name__ == '__main__':
+    # Run the Flask app on port 80 (requires root privileges)
     app.run(host='0.0.0.0', port=80)
+
+# from flask import Flask, jsonify, abort
+# import logging
+# import os
+# import sys
+# from opentelemetry import trace
+# from opentelemetry.exporter.jaeger.thrift import JaegerExporter
+# from opentelemetry.sdk.trace import TracerProvider
+# from opentelemetry.sdk.trace.export import BatchSpanProcessor
+#
+# trace.set_tracer_provider(TracerProvider())
+#
+# jaeger_exporter = JaegerExporter(
+#     agent_host_name='localhost',
+#     agent_port=6831,
+#     # optional: configure also collector
+#     # collector_endpoint='http://localhost:14268/api/traces?format=jaeger.thrift',
+#     # username=xxxx, # optional
+#     # password=xxxx, # optional
+#     # max_tag_value_length=None # optional
+# )
+#
+# span_processor = BatchSpanProcessor(jaeger_exporter)
+#
+# trace.get_tracer_provider().add_span_processor(span_processor)
+#
+# tracer = trace.get_tracer(__name__)
+#
+# with tracer.start_as_current_span("foo"):
+#     with tracer.start_as_current_span("bar"):
+#         with tracer.start_as_current_span("baz"):
+#             print("Hello world from OpenTelemetry Python!")
+#
+# stdout_handler = logging.StreamHandler(sys.stdout)
+# stdout_handler.setFormatter(logging.Formatter('%(asctime)s [%(levelname)s] %(message)s'))
+# logging.getLogger().addHandler(stdout_handler)
+#
+# POD_NAME = os.getenv('HOSTNAME', 'default')
+# K8S_SAMPLE_APP_SERVICE_SERVICE_HOST = os.getenv('K8S_SAMPLE_APP_SERVICE_SERVICE_HOST', 'default')
+# app = Flask(__name__)
+#
+#
+# def square(x):
+#     return f"The square of {x} is {x ** 2}"
+#
+#
+# def cube(x):
+#     return f"The cube of {x} is {x ** 4}"
+#
+#
+# def calculate_fibonacci(n):
+#     fib_sequence = [0, 1]
+#     while len(fib_sequence) < n:
+#         fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+#     return fib_sequence
+#
+#
+# @app.route('/hello')
+# def hello_world():
+#     with tracer.start_as_current_span("hello"):
+#         logging.info(f"Hello from {POD_NAME}!")
+#         return f"Hello from {POD_NAME} and {K8S_SAMPLE_APP_SERVICE_SERVICE_HOST}!"
+#
+#
+# @app.route('/fibonacci/<int:n>')
+# def generate_fibonacci(n):
+#     with tracer.start_as_current_span("fibonacci"):
+#         result = calculate_fibonacci(n)
+#         return jsonify({"fibonacci_sequence": result})
+#
+#
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=80)
 
 # from flask import Flask, jsonify, abort
 # import logging
