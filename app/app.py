@@ -5,20 +5,34 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
 
+
+from opentelemetry import trace
+from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
+
 app = Flask(__name__)
 
 # Set up a TracerProvider
 trace.set_tracer_provider(TracerProvider())
+# Set the tracer provider
+
+# Create an OTLP span exporter
+otlp_exporter = OTLPSpanExporter(
+    # Endpoint of the Collector or Jaeger service accepting OTLP over gRPC
+    # Adjust the endpoint to your Jaeger gRPC endpoint if different
+    endpoint="localhost:4317",  # Default OTLP gRPC endpoint
+    insecure=True,  # For demo purposes, use insecure connection
+)
+
 
 # Configure the Jaeger exporter to export traces to Jaeger
-jaeger_exporter = JaegerExporter(
-    agent_host_name='localhost',
-    agent_port=6831,
-)
+# jaeger_exporter = JaegerExporter(
+#     agent_host_name='localhost',
+#     agent_port=6831,
+# )
 
 # Configure the tracer to use the Jaeger exporter
 trace.get_tracer_provider().add_span_processor(
-    BatchSpanProcessor(jaeger_exporter)
+    BatchSpanProcessor(otlp_exporter)
 )
 
 # Instrument Flask app with OpenTelemetry middleware to trace requests
