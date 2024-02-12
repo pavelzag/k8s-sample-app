@@ -131,3 +131,18 @@ AttributeError: 'str' object has no attribute 'capitalized'
 2024-02-08 22:21:57,938 [INFO] 127.0.0.1 - - [08/Feb/2024 22:21:57] "GET /my_name_is/poopy_farts HTTP/1.1" 200 -
 2024-02-08 22:22:07,623 [INFO] Reporting span f5589b22b2a66670:3f7868a6050e7e81:0:1 k8s-sample-app.my_name_is
 2024-02-08 22:22:07,624 [INFO] 127.0.0.1 - - [08/Feb/2024 22:22:07] "GET /my_name_is/bag_of_dicks HTTP/1.1" 200 -
+2024-02-12 17:55:53,040 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.16.154:80
+2024-02-12 17:55:53,040 [INFO] [33mPress CTRL+C to quit[0m
+2024-02-12 17:55:57,296 [INFO] Reporting span b31fd6209e156132:68dc256d5f836f47:0:1 k8s-sample-app.
+2024-02-12 17:55:57,297 [INFO] 127.0.0.1 - - [12/Feb/2024 17:55:57] "[33mGET / HTTP/1.1[0m" 404 -
+2024-02-12 17:55:57,302 [INFO] Reporting span 136c2d5ad11461c8:d76892fbd623893a:0:1 k8s-sample-app.
+2024-02-12 17:55:57,303 [INFO] 127.0.0.1 - - [12/Feb/2024 17:55:57] "[33mGET / HTTP/1.1[0m" 404 -
+2024-02-12 17:55:57,690 [INFO] Reporting span f42a099fa085e2a:6a00752394c7c29b:0:1 k8s-sample-app.
+2024-02-12 17:55:57,690 [INFO] 127.0.0.1 - - [12/Feb/2024 17:55:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-02-12 17:55:57,691 [INFO] Reporting span 279642e043ce5095:666db4e183d8dcd1:0:1 k8s-sample-app.
+2024-02-12 17:55:57,692 [INFO] 127.0.0.1 - - [12/Feb/2024 17:55:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-02-12 17:56:07,423 [INFO] Reporting span 3776ba53203e7fe2:dbb6b14107809166:0:1 k8s-sample-app.generate_fibonacci
+2024-02-12 17:56:07,423 [INFO] 127.0.0.1 - - [12/Feb/2024 17:56:07] "GET /fibonacci/10 HTTP/1.1" 200 -
