@@ -1,3 +1,4 @@
+
 from flask import Flask, jsonify
 from opentelemetry import trace
 from opentelemetry.exporter.jaeger.thrift import JaegerExporter
@@ -19,7 +20,7 @@ trace.set_tracer_provider(TracerProvider())
 otlp_exporter = OTLPSpanExporter(
     # Endpoint of the Collector or Jaeger service accepting OTLP over gRPC
     # Adjust the endpoint to your Jaeger gRPC endpoint if different
-    endpoint="localhost:4317",  # Default OTLP gRPC endpoint
+    endpoint="my-release-jaeger-operator-metrics.istio-system:4317",  # Default OTLP gRPC endpoint
     insecure=True,  # For demo purposes, use insecure connection
 )
 
@@ -78,7 +79,7 @@ def generate_fibonacci(n):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=80)
+    app.run(debug=True, port=8080)
 
 # from flask import Flask, jsonify
 # from jaeger_client import Config
