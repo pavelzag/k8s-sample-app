@@ -79,7 +79,7 @@ def generate_fibonacci(n):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(debug=True, port=80)
 
 # from flask import Flask, jsonify
 # from jaeger_client import Config
