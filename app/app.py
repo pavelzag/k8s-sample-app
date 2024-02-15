@@ -1,7 +1,5 @@
 from flask import Flask, request, jsonify
 import time
-import signal
-import sys
 
 app = Flask(__name__)
 
@@ -51,14 +49,8 @@ def buy_product():
     return jsonify({"message": "Product purchased successfully"})
 
 
-def signal_handler(sig, frame):
-    print('Terminating inventory service')
-    sys.exit(0)
-
-
 if __name__ == '__main__':
-    signal.signal(signal.SIGTERM, signal_handler)
-    app.run(debug=False, port=8080, host='0.0.0.0')
+    app.run(debug=False, port=80, host='0.0.0.0')
 
 # from flask import Flask, jsonify
 # from opentelemetry.sdk.trace import TracerProvider
