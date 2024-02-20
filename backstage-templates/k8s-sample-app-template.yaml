@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: k8s-sample-app
+  description: K8S Sample App
+  annotations:
+    backstage.io/kubernetes-id: k8s-sample-app
+  tags:
+    - python
+    - flask
+  links:
+    - url: https://systemit-k8s-sample-app.wewix.net
+      title: Sample app
+      icon: dashboard
+      type: service
+    - url: https://systemit-jaeger.wewix.net
+      title: Jaeger Tracing
+      icon: analytics
+      type: metrics-dashboard
+    - url: https://systemit-kiali.wewix.net
+      title: logs
+      icon: dashboard
+      type: logs-dashboard  
+spec:
+  type: service
+  lifecycle: production
+  owner: users-team
+  system: public-websites
