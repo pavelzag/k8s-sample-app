@@ -3,8 +3,18 @@ kind: API
 metadata:
   name: k8s-sample-app
   description: The k8s sample app REST API
+  tags:
+    - rest
+  links:
+    - url: https://github.com/pavelzag/k8s-sample-app
+      title: GitHub Repo
+      icon: github
+    - url: https://github.com/pavelzag/k8s-sample-app/blob/master/app/api_spec.yaml
+      title: API Spec
+      icon: code
 spec:
   type: openapi
-  lifecycle: production
-  owner: user:guest
-  definition: https://raw.githubusercontent.com/pavelzag/k8s-sample-app/master/app/api_spec.yaml
+  lifecycle: experimental
+  owner: team-c
+  definition:
+    $text: ./petstore.oas.yaml
