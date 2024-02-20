@@ -7,5 +7,4 @@ spec:
   type: openapi
   lifecycle: production
   owner: user:guest
-  definition:
-    $openapi: https://github.com/pavelzag/k8s-sample-app/blob/master/app/api_spec.yaml
+  definition: https://github.com/pavelzag/k8s-sample-app/blob/master/app/api_spec.yaml
