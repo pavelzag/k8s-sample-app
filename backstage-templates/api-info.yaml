@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
   name: k8s-sample-app
-  description: The k8s-sample-app REST API
+  description: The k8s sample app REST API
 spec:
   type: openapi
   lifecycle: production
