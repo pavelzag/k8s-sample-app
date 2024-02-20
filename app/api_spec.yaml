@@ -1,7 +1,7 @@
 swagger: '2.0'
-basePath: /
+basePath: "/"
 paths:
-  /api/cube/{num}:
+  "/api/cube/{num}":
     parameters:
     - name: num
       in: path
@@ -14,9 +14,9 @@ paths:
       operationId: get_cube
       tags:
       - api
-  /api/fibonacci/{n}:
+  "/api/fibonacci/{n}":
     parameters:
-    - name: n
+    - name: "n"
       in: path
       required: true
       type: integer
@@ -27,7 +27,7 @@ paths:
       operationId: get_fibonacci
       tags:
       - api
-  /api/hello:
+  "/api/hello":
     get:
       responses:
         '200':
@@ -35,7 +35,7 @@ paths:
       operationId: get_hello_world
       tags:
       - api
-  /api/square/{num}:
+  "/api/square/{num}":
     parameters:
     - name: num
       in: path
