@@ -4,6 +4,7 @@ metadata:
   name: cloud-testing-env
   labels:
     istio-injection: enabled
+    backstage.io/kubernetes-id: k8s-sample-app
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -14,6 +15,7 @@ metadata:
     app: k8s-sample-app
     istio-injection: enabled
     version: "1.0.0"
+    backstage.io/kubernetes-id: k8s-sample-app
   annotations:
     "sidecar.jaegertracing.io/inject": "true"
 spec:
