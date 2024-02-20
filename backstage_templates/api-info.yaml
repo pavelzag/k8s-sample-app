@@ -8,4 +8,4 @@ spec:
   lifecycle: production
   owner: user:guest
   definition:
-    $openapi: https://api.apis.guru/v2/openapi.yaml
+    $openapi: https://github.com/pavelzag/k8s-sample-app/blob/master/app/api_spec.yaml

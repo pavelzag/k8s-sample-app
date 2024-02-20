@@ -23,7 +23,7 @@ def make_request(url, operation_name, tracer):
         span.set_tag('span.type', 'http')
         span.set_tag('http.url', url)
 
-        response = requests.get
+        response = requests.get(url)
 
     return response
 
