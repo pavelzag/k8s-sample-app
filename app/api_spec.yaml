@@ -1,0 +1,67 @@
+swagger: '2.0'
+basePath: /
+paths:
+  /api/cube/{num}:
+    parameters:
+    - name: num
+      in: path
+      required: true
+      type: integer
+    get:
+      responses:
+        '200':
+          description: Success
+      operationId: get_cube
+      tags:
+      - api
+  /api/fibonacci/{n}:
+    parameters:
+    - name: n
+      in: path
+      required: true
+      type: integer
+    get:
+      responses:
+        '200':
+          description: Success
+      operationId: get_fibonacci
+      tags:
+      - api
+  /api/hello:
+    get:
+      responses:
+        '200':
+          description: Success
+      operationId: get_hello_world
+      tags:
+      - api
+  /api/square/{num}:
+    parameters:
+    - name: num
+      in: path
+      required: true
+      type: integer
+    get:
+      responses:
+        '200':
+          description: Success
+      operationId: get_square
+      tags:
+      - api
+info:
+  title: Sample API
+  version: '1.0'
+  description: A simple API
+produces:
+- application/json
+consumes:
+- application/json
+tags:
+- name: api
+  description: Main operations
+responses:
+  ParseError:
+    description: When a mask can't be parsed
+  MaskError:
+    description: When any error occurs on mask
+host: localhost:80
