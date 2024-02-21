@@ -1,10 +1,12 @@
+
 openapi: 3.0.1
 info:
   title: Sample API
   description: A simple API
   version: "1.0"
 servers:
-- url: //localhost:80/
+- url: k8s-sample-app.wewix.net
+- url: localhost:8000
 tags:
 - name: api
   description: Main operations
