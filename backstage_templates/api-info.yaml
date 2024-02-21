@@ -17,4 +17,4 @@ spec:
   lifecycle: experimental
   owner: team-c
   definition:
-    $text: ./petstore.oas.yaml
+    $text: ./api_spec.yaml
