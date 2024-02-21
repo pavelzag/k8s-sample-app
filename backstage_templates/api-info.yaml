@@ -9,7 +9,7 @@ metadata:
     - url: https://github.com/pavelzag/k8s-sample-app
       title: GitHub Repo
       icon: github
-    - url: https://github.com/pavelzag/k8s-sample-app/blob/master/app/api_spec.yaml
+    - url: https://github.com/pavelzag/k8s-sample-app/blob/master/backstage_templates/api_spec.yaml
       title: API Spec
       icon: code
 spec:
