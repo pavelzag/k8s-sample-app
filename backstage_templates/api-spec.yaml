@@ -1,8 +1,8 @@
 
 openapi: 3.0.1
 info:
-  title: Sample API
-  description: A simple API
+  title: Wixstage Demo API
+  description: A simple Wixstage API
   version: "1.0"
 servers:
 - url: http://k8s-sample-app.wewix.net
