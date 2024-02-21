@@ -9,7 +9,7 @@ metadata:
     - python
     - flask
   links:
-    - url: https://systemit-k8s-sample-app.wewix.net
+    - url: https://systemit-k8s-sample-app.wewix.net/api
       title: Sample app
       icon: dashboard
       type: service

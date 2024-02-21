@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, make_response
 from flask_restx import Api, Resource
 import yaml
 
@@ -51,15 +51,76 @@ def calculate_fibonacci(n):
     return fib_sequence
 
 
-# Redefine routes as classes inheriting from Resource
-@ns.route('/hello')  # Default namespace
+@ns.route('/')
+class IndexPage(Resource):
+    @staticmethod
+    def get():
+        html_content = """
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Under Construction</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            margin: 0;
+                            padding: 0;
+                            background-color: #f0f0f0;
+                            text-align: center; /* Center the content */
+                            padding-top: 50px;
+                        }
+                        h1 {
+                            color: #333;
+                        }
+                        p {
+                            color: #666;
+                        }
+                        .container {
+                            width: 80%;
+                            margin: auto;
+                            background-color: #fff;
+                            padding: 20px;
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                            border-radius: 8px;
+                        }
+                        img {
+                            max-width: 100%;
+                            height: auto;
+                            border-radius: 8px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h1>Under Construction</h1>
+                        <p>This page is under construction. Please check back later.</p>
+                        <img src="/static/wix.gif" alt="Wix">
+                        <img src="/static/under_construction.gif" alt="Under Construction">
+                        <img src="/static/wix.gif" alt="Wix">
+                    </div>
+                </body>
+                </html>
+                """
+        response = make_response(html_content)
+        response.headers['Content-Type'] = 'text/html'
+        return response
+
+
+# @ns.route('/potato')
+# class HelloWorld(Resource):
+#     @staticmethod
+#     def get():
+#         return jsonify('Hello, potato')
+
+
+@ns.route('/hello')
 class HelloWorld(Resource):
     @staticmethod
     def get():
         return jsonify('Hello, World from Flask with OpenTelemetry!')
 
 
-@ns.route('/square/<int:num>')  # Use the namespace for API-specific routes
+@ns.route('/square/<int:num>')
 class Square(Resource):
     @staticmethod
     def get(num):
@@ -84,5 +145,5 @@ class Fibonacci(Resource):
 
 
 if __name__ == '__main__':
-    generate_openapi_yaml(app, api)  # Save the OpenAPI spec to YAML within app context
-    app.run(debug=False, port=80, host='0.0.0.0')
+    generate_openapi_yaml(app, api)
+    app.run(debug=True, port=80, host='0.0.0.0')
