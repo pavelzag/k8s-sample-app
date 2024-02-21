@@ -26,3 +26,5 @@ spec:
   lifecycle: production
   owner: pavelza
   system: Wixstage
+  providesApis:
+  - k8s-sample-app-api
