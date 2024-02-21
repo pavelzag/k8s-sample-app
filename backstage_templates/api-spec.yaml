@@ -5,8 +5,7 @@ info:
   description: A simple Wixstage API
   version: "1.0"
 servers:
-- url: http://k8s-sample-app.wewix.net
-- url: http://localhost:8000
+- url: https://systemit-k8s-sample-app.wewix.net/
 tags:
 - name: api
   description: Main operations
