@@ -13,12 +13,12 @@ metadata:
       title: Sample app
       icon: dashboard
       type: service
-    - url: https://systemit-jaeger.wewix.net
+    - url: https://systemit-jaeger.wewix.net/search?service=k8s-sample-app
       title: Jaeger Tracing
-      icon: analytics
+      icon: AcUnit
       type: metrics-dashboard
-    - url: https://systemit-kiali.wewix.net
-      title: logs
+    - url: https://systemit-kiali.wewix.net/kiali/console/namespaces/cloud-testing-env/workloads/k8s-sample-app-deployment
+      title: Kiali Logs
       icon: dashboard
       type: logs-dashboard  
 spec:
