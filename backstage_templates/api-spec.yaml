@@ -5,8 +5,8 @@ info:
   description: A simple API
   version: "1.0"
 servers:
-- url: k8s-sample-app.wewix.net
-- url: localhost:8000
+- url: http://k8s-sample-app.wewix.net
+- url: http://localhost:8000
 tags:
 - name: api
   description: Main operations
