@@ -133,6 +133,7 @@ class Cube(Resource):
 class Fibonacci(Resource):
     @staticmethod
     def get(n):
+        # test
         result = calculate_fibonacci(n)
         return jsonify({"fibonacci_sequence": result})
 
