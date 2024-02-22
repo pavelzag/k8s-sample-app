@@ -2,7 +2,7 @@ name: Automatic Build Multi-Arch Docker Image
 on:
   push:
     branches:
-      - main
+      - master
 
 
 jobs:
