@@ -35,6 +35,7 @@ opentracing==2.4.0
 packaging==23.2
 protobuf==4.25.2
 pytz==2024.1
+PyYAML==6.0.1
 referencing==0.33.0
 rpds-py==0.18.0
 six==1.16.0
