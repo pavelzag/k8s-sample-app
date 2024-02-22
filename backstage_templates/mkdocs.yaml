@@ -1,8 +1,0 @@
-site_name: 'k8s-sample-app-docs'
-site_description: 'This is a sample Nodejs service that exposes a User Api'
-repo_url: https://github.com/pavelzag/k8s-sample-app
-nav:
-  - Home: index.md
-
-plugins:
-  - techdocs-core
