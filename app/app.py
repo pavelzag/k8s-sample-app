@@ -1,5 +1,6 @@
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify, make_response, send_from_directory
 from flask_restx import Api, Resource
+import os
 import yaml
 
 app = Flask(__name__)
@@ -9,6 +10,12 @@ api = Api(app, version='1.0', title='Sample API',
           description='A simple API')
 
 ns = api.namespace('api', description='Main operations')  # Define a namespace
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
 def convert_ordered_dict_to_dict(input_ordered_dict):

@@ -1,4 +1,4 @@
-site_name: 'k8s-sample-app-gh'
+site_name: 'k8s-sample-app'
 site_description: 'This is a sample K8s sample service that exposes a User Api'
 repo_url: https://github.com/pavelzag/k8s-sample-app
 
