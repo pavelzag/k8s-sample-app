@@ -1,7 +1,7 @@
 site_name: 'k8s-sample-app-docs'
 
 nav:
-  - Home: index.md
+  - Home: INDEX.MD
 
 plugins:
   - techdocs-core
