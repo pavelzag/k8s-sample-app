@@ -1,7 +1,7 @@
 site_name: 'k8s-sample-app-gh'
 site_description: 'This is a sample K8s sample service that exposes a User Api'
 repo_url: https://github.com/pavelzag/k8s-sample-app
-docs_dir: docs
+docs_dir: app/docs
 
 nav:
   - Home: index.md
