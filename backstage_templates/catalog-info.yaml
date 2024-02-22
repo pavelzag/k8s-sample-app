@@ -5,6 +5,7 @@ metadata:
   description: K8S Sample App
   annotations:
     backstage.io/kubernetes-id: k8s-sample-app
+    backstage.io/techdocs-ref: dir:.
   tags:
     - python
     - flask
