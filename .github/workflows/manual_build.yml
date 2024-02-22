@@ -1,4 +1,4 @@
-name: Manually Build Multi-Arch Docker Image
+name: Manual Build Multi-Arch Docker Image
 on: 
     workflow_dispatch:
         inputs:

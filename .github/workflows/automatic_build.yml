@@ -1,4 +1,4 @@
-name: Build Automatic Multi-Arch Docker Image
+name: Automatic Build Multi-Arch Docker Image
 on:
   push:
     branches:
