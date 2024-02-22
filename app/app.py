@@ -139,4 +139,4 @@ class Fibonacci(Resource):
 
 if __name__ == '__main__':
     generate_openapi_yaml(app, api)
-    app.run(debug=True, port=80, host='0.0.0.0')
+    app.run(debug=False, port=80, host='0.0.0.0')
