@@ -4,7 +4,7 @@ import yaml
 
 app = Flask(__name__)
 
-app.config['SERVER_NAME'] = 'localhost:80'
+app.config['SERVER_NAME'] = 'systemit-k8s-sample-app.wewix.net'
 api = Api(app, version='1.0', title='Sample API',
           description='A simple API')
 
@@ -133,7 +133,6 @@ class Cube(Resource):
 class Fibonacci(Resource):
     @staticmethod
     def get(n):
-        # test
         result = calculate_fibonacci(n)
         return jsonify({"fibonacci_sequence": result})
 

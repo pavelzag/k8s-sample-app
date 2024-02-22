@@ -72,4 +72,4 @@ responses:
     description: When a mask can't be parsed
   MaskError:
     description: When any error occurs on mask
-host: localhost:80
+host: systemit-k8s-sample-app.wewix.net
