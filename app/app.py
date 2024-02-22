@@ -106,13 +106,6 @@ class IndexPage(Resource):
         return response
 
 
-# @ns.route('/potato')
-# class HelloWorld(Resource):
-#     @staticmethod
-#     def get():
-#         return jsonify('Hello, potato')
-
-
 @ns.route('/hello')
 class HelloWorld(Resource):
     @staticmethod
