@@ -80,5 +80,6 @@ The application can be started with Flask's built-in server by calling `app.run(
 - 💰 Everything 💰
 - 💰 Around 💰
 - 💰 Me 💰
-- 💰 CREAM 💰
+- 💰 C.R.E.A.M 💰
+- 💰 Money dolla bil y'all 💰
 
