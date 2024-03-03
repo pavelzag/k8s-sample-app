@@ -25,7 +25,7 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: pavelza
+  owner: guests:pavelza
   system: Wixstage
   providesApis:
   - k8s-sample-app-api
