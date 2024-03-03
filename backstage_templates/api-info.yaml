@@ -15,6 +15,6 @@ metadata:
 spec:
   type: openapi
   lifecycle: experimental
-  owner: team-c
+  owner: guests
   definition:
     $text: api-spec.yaml
