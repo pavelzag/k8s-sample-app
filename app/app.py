@@ -15,11 +15,11 @@ app = Flask(__name__)
 
 
 def setup_open_telemetry():
-    # Set the Tracer Provider
     trace.set_tracer_provider(TracerProvider())
+    tracer = trace.get_tracer("k8s-sample-app")
 
     # Initialize OTLP Exporter - adjust the endpoint as necessary
-    otlp_exporter = OTLPSpanExporter(endpoint="http://127.0.0.1:4317", insecure=True)
+    otlp_exporter = OTLPSpanExporter(endpoint="http://jaeger-service.istio-system:4317", insecure=True)
 
     # Add Span Processor
     trace.get_tracer_provider().add_span_processor(BatchSpanProcessor(otlp_exporter))
