@@ -1,45 +1,99 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: cloud-testing-env
-  labels:
-    istio-injection: enabled
-    backstage.io/kubernetes-id: k8s-sample-app
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-sample-app-deployment
-  namespace: cloud-testing-env
+  name: httpbin
   labels:
-    app: k8s-sample-app
-    istio-injection: enabled
-    version: "1.0.0"
-    backstage.io/kubernetes-id: k8s-sample-app
-  annotations:
-    "sidecar.jaegertracing.io/inject": "true"
+    app: httpbin
+    version: v1
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: k8s-sample-app
+      app: httpbin
+      version: v1
   template:
     metadata:
       labels:
-        app: k8s-sample-app
+        app: httpbin
+        version: v1
         istio-injection: enabled
-        version: "1.0.0"
     spec:
       containers:
-        - name: k8s-sample-app
-          image: docker.io/pavelzagalsky/k8s-sample-app:latest
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 80
-          resources:
-            requests:
-              memory: "128Mi"
-              cpu: "64m"
-            limits:
-              memory: "256Mi"
-              cpu: "128m"
+      - name: httpbin
+        image: kennethreitz/httpbin
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpbin
+  labels:
+    app: httpbin
+    version: v1
+spec:
+  selector:
+    app: httpbin
+    version: v1
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30036 # Choose a valid node port within the range 30000-32767
+  type: NodePort
+---
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: httpbin-gateway
+  labels:
+    app: httpbin
+    version: v1
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: httpbin
+  labels:
+    app: httpbin
+    version: v1
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - httpbin-gateway
+  http:
+  - route:
+    - destination:
+        host: httpbin
+        port:
+          number: 80
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: httpbin-access
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: httpbin
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        principals: ["*"]
+    to:
+    - operation:
+        paths: ["*"]
+

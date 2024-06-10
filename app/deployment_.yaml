@@ -1,0 +1,79 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cloud-testing-env
+  labels:
+    istio-injection: enabled
+    backstage.io/kubernetes-id: k8s-sample-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-sample-app-deployment
+  namespace: cloud-testing-env
+  labels:
+    app: k8s-sample-app
+    istio-injection: enabled
+    version: "1.0.0"
+    backstage.io/kubernetes-id: k8s-sample-app
+  annotations:
+    "sidecar.jaegertracing.io/inject": "true"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-sample-app
+  template:
+    metadata:
+      labels:
+        app: k8s-sample-app
+        istio-injection: enabled
+        version: "1.0.0"
+    spec:
+      containers:
+        - name: k8s-sample-app
+          image: docker.io/pavelzagalsky/k8s-sample-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "64m"
+            limits:
+              memory: "256Mi"
+              cpu: "128m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-sample-app-service
+  namespace: cloud-testing-env
+spec:
+  selector:
+    app: k8s-sample-app
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: k8s-sample-app
+  namespace: cloud-testing-env
+spec:
+  gateways:
+  - bookinfo-gateway
+  hosts:
+  - '*'
+  http:
+  - match:
+    - uri:
+        prefix: /fibonacci
+    route:
+    - destination:
+        host: k8s-sample-app-service.cloud-testing-env.svc.cluster.local
+        port:
+          number: 8080
+
