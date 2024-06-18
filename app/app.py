@@ -168,5 +168,5 @@ def external_call():
 
 # Main Entry Point
 if __name__ == '__main__':
-    setup_open_telemetry()  # Setup OpenTelemetry instrumentation
+    setup_open_telemetry()
     app.run(port=8080)
