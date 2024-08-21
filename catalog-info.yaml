@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: k8s-sample-app
+  annotations:
+    github.com/project-slug: pavelzag/k8s-sample-app
+spec:
+  type: other
+  lifecycle: unknown
+  owner: x-force
