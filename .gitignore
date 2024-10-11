@@ -1,3 +1,6 @@
 .idea/
 .DS_Store
 app/.DS_Store
+
+# Ignore DevSpace cache and log folder
+.devspace/
